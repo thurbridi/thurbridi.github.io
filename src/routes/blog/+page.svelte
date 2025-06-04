@@ -7,7 +7,7 @@
 <h1>Blog</h1>
 
 <ul>
-	{#each data.articles as article}
+	{#each data.articles as article (article.path)}
 		<li>
 			<a class="underline" href={`blog/${article.path}`}>
 				{article.metadata.title}
