@@ -4,20 +4,20 @@ import { mdsvex } from 'mdsvex';
 
 const config = {
 	extensions: ['.svelte', '.md'],
-	
+
 	preprocess: [
-		vitePreprocess(), 
-		mdsvex({ 
-			extensions: [".md"] 
-		}),
+		vitePreprocess(),
+		mdsvex({
+			extensions: ['.md']
+		})
 	],
-	
-	kit: { 
+
+	kit: {
 		adapter: adapter({
 			fallback: '404.html',
 			pages: 'build',
 			assets: 'build',
-			strict: true,
+			strict: true
 		})
 	}
 };
