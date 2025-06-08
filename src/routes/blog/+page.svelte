@@ -1,18 +1,22 @@
 <script lang="ts">
+	import ArticleThumbnail from '$lib/components/ArticleThumbnail.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 </script>
 
-<h1>Blog</h1>
+<section class="flex flex-col gap-y-4">
+	<h2 class="text-body font-serif text-xl font-semibold tracking-widest">latest articles</h2>
 
-<ul>
-	{#each data.articles as article (article.path)}
-		<li>
-			<a class="underline" href={`blog/${article.path}`}>
-				{article.metadata.title}
-			</a>
-			Published at {article.metadata.date}
-		</li>
-	{/each}
-</ul>
+	<ul class="flex flex-row flex-wrap gap-16 px-4">
+		{#each data.articles as article (article.path)}
+			<li class="text-body font-serif">
+				<ArticleThumbnail
+					title={article.metadata.title}
+					date={article.metadata.date}
+					path={`blog/${article.path}`}
+				/>
+			</li>
+		{/each}
+	</ul>
+</section>

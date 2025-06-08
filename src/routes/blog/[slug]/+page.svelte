@@ -1,10 +1,9 @@
 <script lang="ts">
+	import BlogArticle from '$lib/components/BlogArticle.svelte';
+
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 </script>
 
-<article class="prose">
-	<h1>{data.post.title}</h1>
-	<data.post.content />
-</article>
+<BlogArticle title={data.post.title} date={data.post.date} content={data.post.content} />

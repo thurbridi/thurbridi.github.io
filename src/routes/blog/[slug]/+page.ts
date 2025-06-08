@@ -11,12 +11,13 @@ async function fetchPost(slug: string) {
 	try {
 		const post = await import(`../../../content/articles/${slug}.md`);
 
-		const { title } = post.metadata;
+		const { title, date } = post.metadata;
 		const content = post.default;
 
 		return {
 			post: {
 				title,
+				date,
 				content
 			}
 		};
